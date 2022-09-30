@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainnavigation"
+    app:startDestination="@+id/listingFragment">
+    <fragment
+        android:id="@+id/listingFragment"
+        android:name="com.bhanguz.mvvmhilt.presentation.listing.ListingFragment"
+        android:label="fragment_listing">
+        <action
+            android:id="@+id/action_listingFragment_to_detailsFragment"
+            app:destination="@+id/detailsFragment" >
+            <argument
+                android:name="data"
+                app:argType="com.bhanguz.mvvmhilt.data.local.ImageEntity"
+                app:nullable="true"
+                />
+        </action>
+    </fragment>
+
+    <dialog
+        android:id="@+id/detailsFragment"
+        android:name="com.bhanguz.mvvmhilt.presentation.detail.DetailFragment"
+        android:label="fragment_details">
+        <argument
+            android:name="data"
+            app:argType="com.bhanguz.mvvmhilt.data.local.ImageEntity"
+            app:nullable="true"
+            />
+        <action
+            android:id="@+id/action_detailsFragment_to_listingFragment"
+            app:destination="@+id/listingFragment" />
+    </dialog>
+
+
+</navigation>
+
